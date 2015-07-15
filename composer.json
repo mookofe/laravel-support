@@ -1,0 +1,27 @@
+{
+    "name": "mookofe/laravel-support",
+    "description": "Awesome enhancements for your current Laravel Models, Collections and more.",
+    "keywords": ["laravel5", "laravel", "models", "collections", "package", "Victor Cruz", "mookofe" ],
+    "license": "MIT",
+    "version": "v0.0.1",
+    "authors": [
+        {
+            "name": "Victor Cruz",
+            "email": "cruzrosario@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.7",
+        "illuminate/support": "5.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*",
+        "mockery/mockery": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mookofe\\LaravelSupport\\": "src/"
+        }
+    },    
+    "minimum-stability": "stable"
+}
