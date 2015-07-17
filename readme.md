@@ -3,6 +3,8 @@ mookofe/laravel-support
 
 Awesome enhancements for your current Laravel Models, Collections and more.
 
+###Work in progress, do not use it!!
+
 <!--[![Build Status](https://travis-ci.org/mookofe/tail.svg?branch=master)](https://travis-ci.org/mookofe/tail)
 [![Latest Stable Version](https://poser.pugx.org/mookofe/tail/v/stable.svg)](https://packagist.org/packages/mookofe/tail)
 [![License](https://poser.pugx.org/mookofe/tail/license.svg)](https://packagist.org/packages/mookofe/tail)
@@ -51,7 +53,7 @@ $ php composer update
 
 Integration
 --------------
-Chage inheritance on your models, instead of using the default Eloquent Model change as follow:
+Change inheritance on your models, instead of using the default Eloquent Model change as follow:
 
 ```php
 <?php namespace App;
@@ -135,7 +137,7 @@ Allows you to remove fields in model
 
 Using Collection features:
 --------------
-Our model is configured to use our collection wich extends from Eloquent Collection, so all methods from the Eloquent Collection can be used.
+Our model is configured to use our collection which extends from Eloquent Collection, so all methods from the Eloquent Collection can be used.
 
 ###Rebuild collection
 Allows you to rebuild a collection using the fields you want. Imagine you have a user table with the following fields: (id, name, lastname, sex)
@@ -163,7 +165,7 @@ Allows you to compare if all values of a field is present in another collection.
 	$collection->compare($user_avatar_collection, 'user_id', 'id');        //boolean
 ```
 
-###Crete new instance
+###Create new instance
 Allows you to create a new empty instance of the same type of the current collection 
 
 ```php
@@ -172,9 +174,9 @@ Allows you to create a new empty instance of the same type of the current collec
 ```
 
 ###Get latests rows grouped by fields
-Return a new collection with the latest rows grouped by the fields specified, in the order of the collection items. Imagine you have a **post** table with the followin fields (id, user_id, post\_category\_id).
+Return a new collection with the latest rows grouped by the fields specified, in the order of the collection items. Imagine you have a **post** table with the following fields (id, user_id, post\_category\_id).
 
-This example allows you to get the lastest posts categories for the user.
+This example allows you to get the latest posts categories for the user.
 
 ```php
 	$collection = Post::all();
@@ -198,7 +200,7 @@ Sum all values matching the search criteria. In this example the function will s
 ```
 
 ###Find items on collection
-Allows you to find items on the collection filter by data in the array. In this example we will fillter all products with product category 10 and price 100.
+Allows you to find items on the collection filter by data in the array. In this example we will filter all products with product category 10 and price 100.
 
 ```php
 	$collection = Product::all();
@@ -252,7 +254,7 @@ Allows you to get the average by a field
 ```
 
 ###Find items not matching the filter
-Allows you to find items on the collection not matching the filter criteria. In this example we will fillter all products where product category is different to 10.
+Allows you to find items on the collection not matching the filter criteria. In this example we will filter all products where product category is different to 10.
 
 ```php
 	$collection = Product::all();
@@ -261,7 +263,7 @@ Allows you to find items on the collection not matching the filter criteria. In 
 	$filtered = $collection->findIfDifferent($filter);
 ```
 
-###Get maximim item by field name
+###Get maximum item by field name
 Get the max value of the given key and return the item. In this example the function will return the max user from the collection.
 
 ```php
