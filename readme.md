@@ -3,7 +3,7 @@ mookofe/laravel-support
 
 Awesome enhancements for your current Laravel Models, Collections and more.
 
-###Work in progress, do not use it!!
+###Work in progress, do not use!!
 
 <!--[![Build Status](https://travis-ci.org/mookofe/tail.svg?branch=master)](https://travis-ci.org/mookofe/tail)
 [![Latest Stable Version](https://poser.pugx.org/mookofe/tail/v/stable.svg)](https://packagist.org/packages/mookofe/tail)
