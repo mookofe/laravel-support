@@ -3,7 +3,9 @@ mookofe/laravel-support
 
 Awesome enhancements for your current Laravel Models, Collections and more.
 
-###Work in progress, do not use!!
+###Work in progress, do not use in production!
+
+[![Build Status](https://travis-ci.org/mookofe/laravel-support.svg?branch=master)](https://travis-ci.org/mookofe/laravel-support)
 
 <!--[![Build Status](https://travis-ci.org/mookofe/tail.svg?branch=master)](https://travis-ci.org/mookofe/tail)
 [![Latest Stable Version](https://poser.pugx.org/mookofe/tail/v/stable.svg)](https://packagist.org/packages/mookofe/tail)
@@ -204,7 +206,7 @@ Allows you to find items on the collection filter by data in the array. In this 
 
 ```php
 	$collection = Product::all();
-	$filter = array('product_category_id => 10, 'price' => 100);
+	$filter = array('product_category_id' => 10, 'price' => 100);
 	
 	$filtered = $collection->findByFields($filter);
 ```
@@ -258,7 +260,7 @@ Allows you to find items on the collection not matching the filter criteria. In 
 
 ```php
 	$collection = Product::all();
-	$filter = array('product_category_id => 10);
+	$filter = array('product_category_id' => 10);
 	
 	$filtered = $collection->findIfDifferent($filter);
 ```
