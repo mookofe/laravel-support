@@ -1,6 +1,5 @@
 <?php namespace Mookofe\LaravelSupport;
 
-use App;
 use Illuminate\Database\Eloquent\Collection as Base;
 use Mookofe\LaravelSupport\Exceptions\AttributeNotFoundException;
 
@@ -25,7 +24,7 @@ class Collection extends Base {
         foreach ($this->items as $item)
         {
             $modelClass = get_class($item);
-            $model = App::make($modelClass);
+            $model = new $modelClass();
 
             $model = $this->buildModel($model, $item, $format);
 
@@ -53,7 +52,7 @@ class Collection extends Base {
         {
             if (is_array($field))
             {
-                $nextInstance = App::make("$modelName");
+                $nextInstance = new $modelName();
                 $newModel->$key = $this->buildModel($nextInstance, $row, $field)->toArray();
             }
             else
@@ -71,20 +70,24 @@ class Collection extends Base {
     /**
      * Compare if the current collection is the same based on one field
      *
-     * @param array $collection of item to be compared
+     * @param Collection $collection of item to be compared
      * @param string $collectionField Field name in the remote collection
      * @param string $localField Field name in the local collection
      *
      * @return boolean
      */
-    public function compare(array $collection, $collectionField, $localField)
+    public function compare($collection, $collectionField, $localField)
     {
         //Convert collections to simple array
         $currentCollection = array_flatten($this->rebuild([$localField])->toArray());
 
         $arrayCollection = [];
         foreach ($collection as $item)
+        {
+            if (!$item->attributeExist($collectionField))
+                throw new AttributeNotFoundException("Attribute $collectionField does not exist in the remote collection");
             array_push($arrayCollection, $item[$collectionField]);
+        }
 
         return $this->hasIdenticalValues($currentCollection, $arrayCollection);
     }
@@ -114,7 +117,7 @@ class Collection extends Base {
     public function createNewInstance()
     {
         $class_name = get_class($this);
-        return App::make($class_name);
+        return new $class_name();
     }
 
     /**
@@ -206,10 +209,10 @@ class Collection extends Base {
         foreach ($this->items as $item)
         {
             $found = true;
-            foreach ($fields as $property => $value) {
-                if (!$item->propertyExist($property))
+            foreach ($fields as $property => $value) 
+            {
+                if (!$item->attributeExist($property))
                     throw new AttributeNotFoundException("Field '$property' not found in the item");
-
                 $found = $found && ($item->$property == $value);
             }
             if ($found)
@@ -344,7 +347,7 @@ class Collection extends Base {
             $found = true;
             foreach ($fields as $property => $value) 
             {
-                if (!$item->propertyExist($property))
+                if (!$item->attributeExist($property))
                     throw new AttributeNotFoundException("Field '$property' not found in the item");
 
                 $found = $found && ($item->$property != $value);
