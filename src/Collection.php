@@ -320,13 +320,13 @@ class Collection extends Base {
 
         if ($count_nulls)
             $collection = $this;
-        else
-            $collection = $this->findIfDifferent(array('current_score' => null));
+        else 
+            $collection = $this->findIfDifferent(array($field => null));
 
         if ($collection->count() == 0)
             return null;
 
-        return $collection->sum('current_score')/$collection->count();
+        return $collection->sum($field)/$collection->count();
     }
 
     /**
