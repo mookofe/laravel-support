@@ -33,7 +33,7 @@ Installation
 Open your composer.json file and add the following to the require array: 
 
 ```js
-"mookofe/laravel-support": "0.*"
+"mookofe/laravel-support": "1.*"
 ```
 
 **Install dependencies**
