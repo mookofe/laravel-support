@@ -22,7 +22,7 @@ Requirements
 
 Version
 ----
-1.0.0
+1.0.1
 
 
 Installation
@@ -270,6 +270,17 @@ Get the max value of the given key and return the item. In this example the func
 ```php
     $users = User::all();
     $max_user = $users->maxItem('id');
+```
+
+###Convert collection to flat array
+Convert the entire collection to a single array using the value of the property specified in the parameter.
+
+```php
+    $users = User::all();    
+    $flat_users = $users->toFlatArray('id');
+    
+    var_dump($flat_users);						// array(1,2,3)
+
 ```
 
 License

@@ -3,7 +3,7 @@
     "description": "Awesome enhancements for your current Laravel Models, Collections and more.",
     "keywords": ["laravel5", "laravel", "models", "collections", "package", "Victor Cruz", "mookofe" ],
     "license": "MIT",
-    "version": "v1.0.0",
+    "version": "v1.0.1",
     "authors": [
         {
             "name": "Victor Cruz",

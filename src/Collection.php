@@ -385,4 +385,18 @@ class Collection extends Base {
         return $index;
     }
 
+    /**
+     * Convert collection to flat array using a field
+     *
+     * @param string $field Field to convert to array
+     *
+     * @return array
+     */
+    public function toFlatArray($field)
+    {
+        $coll = $this->rebuild([$field]);
+
+        return array_flatten($coll->toArray());
+    }
+
 }
